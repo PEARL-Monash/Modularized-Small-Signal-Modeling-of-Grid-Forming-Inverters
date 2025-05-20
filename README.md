@@ -52,6 +52,7 @@ You can begin using the files of this repository by following these steps:
     -   You will see that a .mlx file is self-explanatory and can walk you to understand how the model is generated step-by-step.
 
 6.  Run any other .mlx file, for example, "CGVSG_XR_EA.mlx". This file runs a eigenvalue analysis. Note that this file uses
-    the state-space matrices of the small-signal model generated in the step 5. 
+    the state-space matrices of the small-signal model generated in the step 5. You will output files after running this file, 
+    for example, svg figures. 
 
 If you have any question or run into some issues, please contact: sohail.ali[at]monash.edu, or psernatorre[at]ucsd.edu. 
