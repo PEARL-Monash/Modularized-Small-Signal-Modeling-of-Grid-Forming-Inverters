@@ -7,8 +7,8 @@ This repository is a power system toolkit for the small-signal modeling of Grid-
 It contains the full development of the small-signal model of different types of GFMIs and further analysis
 of the models, including eigenvalue analysis. 
 
-The files in this repository intends to walk you to build a complete small-signal model of a GFMI built 
-from scratch. 
+The files in this repository intend to walk you to build a complete small-signal model of a GFMI built 
+from scratch and to conduct analysis with the small-signal models.
 
 ## Citing this repository
 
