@@ -38,7 +38,7 @@ You can begin using the files of this repository by following these steps:
 
     - This folder contains functions that are used across several files.
 
-3.  Go to the folder "Grid Forming Inverters". You will see several folders that correspond to each GFMI model, e.g., droop, virtual
+3.  Go to the folder "Grid_Forming_Inverters". You will see several folders that correspond to each GFMI model, e.g., droop, virtual
     synchronous machines. Please refer to the paper to understand each of the models.
 
 4.  Go to one folder, for example, "Compensated_Generalized_Virtual_Synchronous_Machine". The files that you can run have the
