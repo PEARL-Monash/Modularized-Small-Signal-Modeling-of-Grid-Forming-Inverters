@@ -20,10 +20,10 @@ it if you can cite the following article:
 
 You can find the corresponding citation (.bib) in the IEEE website.
 
+## Get Started with this Repository
+
 It is strongly recommended you can read the paper so that you can understand the modeling and simulation 
 behind this repository.
-
-## Get Started with this Repository
 
 You can begin using the files of this repository by following these steps:
 
@@ -50,9 +50,31 @@ You can begin using the files of this repository by following these steps:
     see that a .mat file generated. This .mat file contains the state-space matrices in symbols (not numbers).
 
     -   You will see that a .mlx file is self-explanatory and can walk you to understand how the model is generated step-by-step.
+    -   Once you have the state-space matrices of the small-signal model of a GFMI, then you can conduct more analysis with it, 
+        as we do in the next step.
 
 6.  Run any other .mlx file, for example, "CGVSG_XR_EA.mlx". This file runs a eigenvalue analysis. Note that this file uses
     the state-space matrices of the small-signal model generated in the step 5. You will output files after running this file, 
     for example, svg figures. 
+
+    -   As this step 6 conducts a numerical analysis, make sure you have the file "Parameters.m" in the same folder of the .mlx file. 
+        The "Parameter.m" file contains the numerical parameters, such as gains of the control schemes of the GFMI. 
+
+## Description of executable files in this repository.
+
+1. SMIB_PowerFlow.m: Computes a power flow solution for the GFMI connected to an infinite bus using Matpower.
+2. Parameters.m: Contains the numerical parameters for the GFMI models.
+3. CGVSG.mxl: Generates the symbolic small-signal model for a Compensated generalized virtual synchronous generator.
+4. Droop_Model.mlx: Generates the symbolic small-signal model for a Droop-based GFMI.
+5. LPF_Model.mlx: Generates the symbolic small-signal model for a Low-pass-filter-based GFMI.
+6. VSG_Model.mlx: Generates the symbolic small-signal model for a Virtual synchronous generator.
+7. VSG_Model_VI.mlx: Generates the symbolic small-signal model for a Virtual Synchronous generator with algebraic virtual impedance.
+8. VSG_model_No_CC.mlx: Generates the symbolic small-signal model for a Virtual Synchronous generator with no current controller. This is reduced model version of
+the VSG_Model.
+9. VSG_model_No_VC.mlx: Generates the symbolic small-signal model for a Virtual Synchronous generator with no voltage controller. This is reduced model version of
+the VSG_Model.
+10. CGVSG_XR_EA.mlx: Conducts the eigenvalue analysis for a CGVSG.
+
+## Run into some issues?
 
 If you have any question or run into some issues, please contact: sohail.ali[at]monash.edu, or psernatorre[at]ucsd.edu. 
