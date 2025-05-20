@@ -14,5 +14,14 @@ In case you use files of this repository, we would appreciate it if you can cite
 Sohail A. Ali, Paul Serna-Torre, Patricia Hidalgo-Gonzalez, Mehdi Ghazavi Dozein, and Behrooz Bahrani, 
 "Modularized Small-Signal Modeling of Grid-Forming Inverters", IEEE Open Access, 2025
 
-You can find the corresponding citation (.bib) in IEEE.
+You can find the corresponding citation (.bib) in IEEE website.
+
+## Get Started with this Repository
+
+You can begin using the files of this repository by following these steps:
+
+1. First, install Matpower if you do not have already have it installed in your computer. Make sure 
+that Matpower is in your Matlab path. To this purpose, when you install Matpower, choose the option 3.
+
+
 
