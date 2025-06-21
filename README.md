@@ -3,62 +3,41 @@
 
 ## Overview
 
-This repository is a power system toolkit for the small-signal modeling of Grid-Forming Inverters (GFMIs). 
-It contains the full development of the small-signal model of different types of GFMIs and further analysis
-of the models, including eigenvalue analysis. 
+This repository provides a comprehensive power system toolkit for the modular small-signal modeling of Grid-Forming Inverters (GFMIs). It implements the complete development of small-signal models for various GFMI control strategies, along with analytical tools for detailed stability studies including eigenvalue analysis.
 
-The files in this repository intend to walk you to build a complete small-signal model of a GFMI built 
-from scratch and to conduct analysis with the small-signal models.
+The files in this repository are designed to guide you through building small-signal models of GFMIs from first principles, and enable you to conduct systematic analyses of these models under a wide range of control and grid conditions.
 
 ## Citing this repository
 
-In case you use files of this repository for any educational material or publication, we would appreciate 
-it if you can cite the following article:
+If you find this repository helpful in your own research or modeling activities, we would be sincerely grateful if you consider citing the following publication:
 
 > Sohail A. Ali, Paul Serna-Torre, Patricia Hidalgo-Gonzalez, Mehdi Ghazavi Dozein, and Behrooz Bahrani, 
 "Modularized Small-Signal Modeling of Grid-Forming Inverters", IEEE Open Access, 2025
 
-You can find the corresponding citation (.bib) in the IEEE website.
+You can find the corresponding citation (.bib) on the IEEE website.
 
 ## Get Started with this Repository
 
-It is strongly recommended you can read the paper so that you can understand the modeling and simulation 
-behind this repository.
+While the repository is self-contained, we strongly recommend reading the accompanying paper to fully understand the modeling framework and analysis procedures implemented here.
 
 You can begin using the files of this repository by following these steps:
 
-1.  Install [Matpower](https://matpower.org/) if you do not have already have it installed in your computer. 
+1.  Install [Matpower](https://matpower.org/) if you do not have it already installed on your computer. 
 
-    - Make sure that Matpower is in your Matlab path. To this purpose, when you install Matpower, choose the option 3.
-    - Matpower is required to obtain a power flow solution which is the initial condition to generate the small-signal
-    models.
-    - The files of this repository runs Matpower internally. 
+    - During MATPOWER installation, select option 3 to ensure proper integration.
+    - Matpower is required to obtain a power flow solution which is used to calculate linear operating point of the small-signal
+    models. (It is important to perform power flow when you vary circuit parameters, as these affect your operating point and consequently your eigenvalues)
 
-2.  Save the folder "Functions" in your Matlab path. 
+2.  Go to the folder "Generate_SSM". You will find all the models developed in our paper. It contains several MATLAB .mlx and .mat files that correspond to each model. For example, running the "VSG_model.mlx" does the following:
+    - Builds subsystems, algebraic loops and performs the Component Connection Method (CCM) to provide symbolic model of the VSG.
+    - This model is saved as a .mat file and can be used for eigenvalue analysis (Part 3) and validation with an EMT model.
+    - The same process is repeated for all models
 
-    - This folder contains functions that are used across several files.
-
-3.  Go to the folder "Grid_Forming_Inverters". You will see several folders that correspond to each GFMI model, e.g., droop, virtual
-    synchronous machines. Please refer to the paper to understand each of the models.
-
-4.  Go to one folder, for example, "Compensated_Generalized_Virtual_Synchronous_Machine". The files that you can run have the
-    extension .mlx. 
-
-5.  Run the .mlx file that has the name of the GFMI model. For example, if you are in the folder 
-    "Compensated_Generalized_Virtual_Synchronous_Machine", then the file is "CGVSG.mlx". This mlx file
-    generate the state-space matrices A, B, C, D of the small-signal model of the GFMI. After running the file, you will 
-    see that a .mat file generated. This .mat file contains the state-space matrices in symbols (not numbers).
-
-    -   You will see that a .mlx file is self-explanatory and can walk you to understand how the model is generated step-by-step.
-    -   Once you have the state-space matrices of the small-signal model of a GFMI, then you can conduct more analysis with it, 
-        as we do in the next step.
-
-6.  Run any other .mlx file, for example, "CGVSG_XR_EA.mlx". This file runs a eigenvalue analysis. Note that this file uses
-    the state-space matrices of the small-signal model generated in the step 5. You will output files after running this file, 
-    for example, svg figures. 
-
-    -   As this step 6 conducts a numerical analysis, make sure you have the file "Parameters.m" in the same folder of the .mlx file. 
-        The "Parameter.m" file contains the numerical parameters, such as gains of the control schemes of the GFMI. 
+3.  Go to the folder "EigenAnalysis". This file helps you study how the stability of your system changes when you adjust control or grid parameters.
+    - Copy the symbolic models you created in Step 2 (e.g Unified_VSG.mat) into this folder.
+    - The scripts will convert all your variables in the symbolic models into numeric with values in the "Parameters.m" except for the parameter you intend to vary.
+    - To help you get started, the provided files can vary feedforward, inertia, short-circuit ratio and XR ratio for VSG.
+    - You can can do this for any model by simplying loading another model in the folder.
 
 ## Description of executable files in this repository.
 
@@ -71,9 +50,9 @@ You can begin using the files of this repository by following these steps:
 7. VSG_Model_VI.mlx: Generates the symbolic small-signal model for a Virtual Synchronous generator with algebraic virtual impedance.
 8. VSG_model_No_CC.mlx: Generates the symbolic small-signal model for a Virtual Synchronous generator with no current controller. This is reduced model version of
 the VSG_Model.
-9. VSG_model_No_VC.mlx: Generates the symbolic small-signal model for a Virtual Synchronous generator with no voltage controller. This is reduced model version of
+9. VSG_model_No_VC.mlx: Generates the symbolic small-signal model for a Virtual Synchronous generator without voltage or current controller. This is reduced model version of
 the VSG_Model.
-10. CGVSG_XR_EA.mlx: Conducts the eigenvalue analysis for a CGVSG.
+10. VSG_SCR.mlx: Conducts the eigenvalue analysis for a VSG for grid strength variation.
 
 ## Run into some issues?
 
